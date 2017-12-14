@@ -1,4 +1,4 @@
-/*-
+﻿/*-
  * Free/Libre Near Field Communication (NFC) library
  *
  * Libnfc historical contributors:
@@ -26,36 +26,50 @@
  */
 
 #include "log-internal.h"
+#include <nfc/nfc.h>
 
 #include <stdio.h>
 #include <stdarg.h>
 #include <strsafe.h>
 
+
+PFN_NFC_OUTPUT_DEBUG_STRING g_pnfcoutputdebugstring = NULL;
 static void
 log_output_debug(const char *format, va_list args)
 {
-  char buffer[1024];
-  HRESULT hr = StringCbVPrintf(buffer, sizeof(buffer), format, args);
-  // Spew what we got, even if the buffer is not sized large enough
-  if ((STRSAFE_E_INSUFFICIENT_BUFFER == hr) || (S_OK == hr))
-    OutputDebugString(buffer);
+   char buffer[1024];
+   HRESULT hr = StringCbVPrintf(buffer, sizeof(buffer), format, args);
+   // Spew what we got, even if the buffer is not sized large enough
+   if ((STRSAFE_E_INSUFFICIENT_BUFFER == hr) || (S_OK == hr))
+      OutputDebugString(buffer);
+   if (g_pnfcoutputdebugstring != NULL)
+   {
+      (*g_pnfcoutputdebugstring)(buffer);
+   }
+
+}
+
+void nfc_set_output_debug_string_function(PFN_NFC_OUTPUT_DEBUG_STRING pfn)
+{
+   g_pnfcoutputdebugstring = pfn;
+
 }
 
 void
 log_vput_internal(const char *format, va_list args)
 {
-  vfprintf(stderr, format, args);
-  // Additional windows output to the debug window for debugging purposes
-  log_output_debug(format, args);
+   vfprintf(stderr, format, args);
+   // Additional windows output to the debug window for debugging purposes
+   log_output_debug(format, args);
 }
 
 void
 log_put_internal(const char *format, ...)
 {
-  va_list va;
-  va_start(va, format);
-  vfprintf(stderr, format, va);
-  // Additional windows output to the debug window for debugging purposes
-  log_output_debug(format, va);
-  va_end(va);
+   va_list va;
+   va_start(va, format);
+   vfprintf(stderr, format, va);
+   // Additional windows output to the debug window for debugging purposes
+   log_output_debug(format, va);
+   va_end(va);
 }
