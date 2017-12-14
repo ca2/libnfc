@@ -1,0 +1,18 @@
+﻿nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_init referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_exit referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_open referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_close referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_list_devices referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_init referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_select_passive_target referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_transceive_bytes referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_target_init referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_target_send_bytes referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_target_receive_bytes referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_perror referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_device_get_name referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__iso14443a_locate_historical_bytes referenced in function _main
+nfc-relay-picc.obj : error LNK2019: unresolved external symbol __imp__nfc_version referenced in function _main
+nfcutils.lib(nfc-utils.obj) : error LNK2019: unresolved external symbol __imp__nfc_free referenced in function _print_nfc_target
+nfcutils.lib(nfc-utils.obj) : error LNK2019: unresolved external symbol __imp__str_nfc_target referenced in function _print_nfc_target
+C:\eco\time\Win32\basis\utils\Debug\nfc-relay-picc.exe : fatal error LNK1120: 17 unresolved externals

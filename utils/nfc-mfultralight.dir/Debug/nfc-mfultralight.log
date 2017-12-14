@@ -1,0 +1,17 @@
+﻿nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_init referenced in function _main
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_exit referenced in function _main
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_open referenced in function _main
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_close referenced in function _main
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_init referenced in function _list_passive_targets
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_select_passive_target referenced in function _check_magic
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_list_passive_targets referenced in function _list_passive_targets
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_transceive_bytes referenced in function _transmit_bytes
+mifare.obj : error LNK2001: unresolved external symbol __imp__nfc_initiator_transceive_bytes
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_transceive_bits referenced in function _transmit_bits
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_perror referenced in function _raw_mode_start
+mifare.obj : error LNK2001: unresolved external symbol __imp__nfc_perror
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_device_get_name referenced in function _main
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__nfc_device_set_property_bool referenced in function _raw_mode_start
+mifare.obj : error LNK2001: unresolved external symbol __imp__nfc_device_set_property_bool
+nfc-mfultralight.obj : error LNK2019: unresolved external symbol __imp__iso14443a_crc_append referenced in function _get_ev1_version
+C:\eco\time\Win32\basis\utils\Debug\nfc-mfultralight.exe : fatal error LNK1120: 13 unresolved externals

@@ -1,4 +1,4 @@
-/*-
+﻿/*-
  * Free/Libre Near Field Communication (NFC) library
  *
  * Libnfc historical contributors:
@@ -33,8 +33,11 @@
 #ifndef __NFC_BUS_UART_H__
 #  define __NFC_BUS_UART_H__
 
+#ifdef WIN32
+#include <time.h>
+#else
 #  include <sys/time.h>
-
+#endif
 #  include <stdio.h>
 #  include <string.h>
 #  include <stdlib.h>

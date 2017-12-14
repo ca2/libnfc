@@ -1,4 +1,4 @@
-/*-
+﻿/*-
  * Free/Libre Near Field Communication (NFC) library
  *
  * Libnfc historical contributors:
@@ -48,7 +48,7 @@
 #    define ENOTSUP       WSAEOPNOTSUPP
 #    define ECONNABORTED  WSAECONNABORTED
 #  else
-#    define snprintf sprintf_s
+//#    define snprintf sprintf_s
 #    define strdup _strdup
 #  endif
 

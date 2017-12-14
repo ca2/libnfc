@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="libnfc\drivers\acr122_usb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\drivers\acr122s.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\drivers\arygon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\conf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\iso14443-subr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\win32\libnfc\log-internal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\mirror-subr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\nfc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\nfc-device.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\nfc-emulation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\chips\pn53x.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\nfc-internal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\drivers\pn53x_usb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\drivers\pn532_uart.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\win32\stdlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\buses\usbbus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\win32\libnfc\buses\uart.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libnfc\target-subr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="libnfc\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{17DFBE71-601E-3729-A9CE-C5845C807E02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nfc.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="windows\libnfc.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

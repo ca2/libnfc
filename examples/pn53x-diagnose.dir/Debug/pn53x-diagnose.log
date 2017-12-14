@@ -1,0 +1,10 @@
+﻿pn53x-diagnose.obj : error LNK2019: unresolved external symbol __imp__nfc_init referenced in function _main
+pn53x-diagnose.obj : error LNK2019: unresolved external symbol __imp__nfc_exit referenced in function _main
+pn53x-diagnose.obj : error LNK2019: unresolved external symbol __imp__nfc_open referenced in function _main
+pn53x-diagnose.obj : error LNK2019: unresolved external symbol __imp__nfc_close referenced in function _main
+pn53x-diagnose.obj : error LNK2019: unresolved external symbol __imp__nfc_list_devices referenced in function _main
+pn53x-diagnose.obj : error LNK2019: unresolved external symbol __imp__nfc_perror referenced in function _main
+pn53x-diagnose.obj : error LNK2019: unresolved external symbol __imp__nfc_device_get_name referenced in function _main
+pn53x-diagnose.obj : error LNK2019: unresolved external symbol __imp__nfc_version referenced in function _main
+pn53x-diagnose.obj : error LNK2019: unresolved external symbol _pn53x_transceive referenced in function _main
+C:\eco\time\Win32\basis\examples\Debug\pn53x-diagnose.exe : fatal error LNK1120: 9 unresolved externals

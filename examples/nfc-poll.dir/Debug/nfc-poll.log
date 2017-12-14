@@ -1,0 +1,14 @@
+﻿nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_init referenced in function _main
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_exit referenced in function _stop_polling
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_open referenced in function _main
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_close referenced in function _main
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_abort_command referenced in function _stop_polling
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_init referenced in function _main
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_poll_target referenced in function _main
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_target_is_present referenced in function _main
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_perror referenced in function _main
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_device_get_name referenced in function _main
+nfc-poll.obj : error LNK2019: unresolved external symbol __imp__nfc_version referenced in function _main
+nfcutils.lib(nfc-utils.obj) : error LNK2019: unresolved external symbol __imp__nfc_free referenced in function _print_nfc_target
+nfcutils.lib(nfc-utils.obj) : error LNK2019: unresolved external symbol __imp__str_nfc_target referenced in function _print_nfc_target
+C:\eco\time\Win32\basis\examples\Debug\nfc-poll.exe : fatal error LNK1120: 13 unresolved externals

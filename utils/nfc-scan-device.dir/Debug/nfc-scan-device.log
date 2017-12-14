@@ -1,0 +1,11 @@
+﻿nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_init referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_exit referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_open referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_close referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_list_devices referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_device_get_name referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_device_get_connstring referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_free referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_version referenced in function _main
+nfc-scan-device.obj : error LNK2019: unresolved external symbol __imp__nfc_device_get_information_about referenced in function _main
+C:\eco\time\Win32\basis\utils\Debug\nfc-scan-device.exe : fatal error LNK1120: 10 unresolved externals

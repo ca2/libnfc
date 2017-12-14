@@ -1,0 +1,14 @@
+﻿nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_init referenced in function _main
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_exit referenced in function _main
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_open referenced in function _main
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_close referenced in function _main
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_init referenced in function _main
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_transceive_bytes referenced in function _transmit_bytes
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_initiator_transceive_bits referenced in function _transmit_bits
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_perror referenced in function _main
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_device_get_name referenced in function _main
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__nfc_device_set_property_bool referenced in function _main
+nfc-mfsetuid.obj : error LNK2019: unresolved external symbol __imp__iso14443a_crc_append referenced in function _main
+nfcutils.lib(nfc-utils.obj) : error LNK2019: unresolved external symbol __imp__nfc_free referenced in function _print_nfc_target
+nfcutils.lib(nfc-utils.obj) : error LNK2019: unresolved external symbol __imp__str_nfc_target referenced in function _print_nfc_target
+C:\eco\time\Win32\basis\examples\Debug\nfc-mfsetuid.exe : fatal error LNK1120: 13 unresolved externals

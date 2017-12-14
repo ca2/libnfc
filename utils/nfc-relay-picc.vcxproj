@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9784CDF7-8404-3902-BAE9-0E46083B28E2}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>nfc-relay-picc</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\eco\time\Win32\basis\utils\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nfc-relay-picc.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nfc-relay-picc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\eco\time\Win32\basis\utils\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nfc-relay-picc.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nfc-relay-picc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\eco\time\Win32\basis\utils\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">nfc-relay-picc.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">nfc-relay-picc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\eco\time\Win32\basis\utils\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">nfc-relay-picc.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">nfc-relay-picc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_CONFIG_H;LOG;ENVVARS;CONFFILES;u_int8_t=uint8_t;u_int16_t=uint16_t;DRIVER_ACR122_USB_ENABLED;DRIVER_ACR122S_ENABLED;DRIVER_ARYGON_ENABLED;DRIVER_PN532_UART_ENABLED;DRIVER_PN53X_USB_ENABLED;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;HAVE_CONFIG_H;LOG;ENVVARS;CONFFILES;u_int8_t=uint8_t;u_int16_t=uint16_t;DRIVER_ACR122_USB_ENABLED;DRIVER_ACR122S_ENABLED;DRIVER_ARYGON_ENABLED;DRIVER_PN532_UART_ENABLED;DRIVER_PN53X_USB_ENABLED;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>Debug\nfcutils.lib;..\libnfc\Debug\nfc.lib;wsock32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/eco/time/Win32/basis/utils/Debug/nfc-relay-picc.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/eco/time/Win32/basis/utils/Debug/nfc-relay-picc.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H;LOG;ENVVARS;CONFFILES;u_int8_t=uint8_t;u_int16_t=uint16_t;DRIVER_ACR122_USB_ENABLED;DRIVER_ACR122S_ENABLED;DRIVER_ARYGON_ENABLED;DRIVER_PN532_UART_ENABLED;DRIVER_PN53X_USB_ENABLED;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H;LOG;ENVVARS;CONFFILES;u_int8_t=uint8_t;u_int16_t=uint16_t;DRIVER_ACR122_USB_ENABLED;DRIVER_ACR122S_ENABLED;DRIVER_ARYGON_ENABLED;DRIVER_PN532_UART_ENABLED;DRIVER_PN53X_USB_ENABLED;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>Release\nfcutils.lib;..\libnfc\Release\nfc.lib;wsock32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/eco/time/Win32/basis/utils/Release/nfc-relay-picc.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/eco/time/Win32/basis/utils/Release/nfc-relay-picc.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H;LOG;ENVVARS;CONFFILES;u_int8_t=uint8_t;u_int16_t=uint16_t;DRIVER_ACR122_USB_ENABLED;DRIVER_ACR122S_ENABLED;DRIVER_ARYGON_ENABLED;DRIVER_PN532_UART_ENABLED;DRIVER_PN53X_USB_ENABLED;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H;LOG;ENVVARS;CONFFILES;u_int8_t=uint8_t;u_int16_t=uint16_t;DRIVER_ACR122_USB_ENABLED;DRIVER_ACR122S_ENABLED;DRIVER_ARYGON_ENABLED;DRIVER_PN532_UART_ENABLED;DRIVER_PN53X_USB_ENABLED;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>MinSizeRel\nfcutils.lib;..\libnfc\MinSizeRel\nfc.lib;wsock32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/eco/time/Win32/basis/utils/MinSizeRel/nfc-relay-picc.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/eco/time/Win32/basis/utils/MinSizeRel/nfc-relay-picc.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H;LOG;ENVVARS;CONFFILES;u_int8_t=uint8_t;u_int16_t=uint16_t;DRIVER_ACR122_USB_ENABLED;DRIVER_ACR122S_ENABLED;DRIVER_ARYGON_ENABLED;DRIVER_PN532_UART_ENABLED;DRIVER_PN53X_USB_ENABLED;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H;LOG;ENVVARS;CONFFILES;u_int8_t=uint8_t;u_int16_t=uint16_t;DRIVER_ACR122_USB_ENABLED;DRIVER_ACR122S_ENABLED;DRIVER_ARYGON_ENABLED;DRIVER_PN532_UART_ENABLED;DRIVER_PN53X_USB_ENABLED;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;C:\eco\libnfc\utils\..\contrib\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>RelWithDebInfo\nfcutils.lib;..\libnfc\RelWithDebInfo\nfc.lib;wsock32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/eco/time/Win32/basis/utils/RelWithDebInfo/nfc-relay-picc.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/eco/time/Win32/basis/utils/RelWithDebInfo/nfc-relay-picc.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\eco\libnfc\utils\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/eco/libnfc/utils/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/eco/libnfc -BC:/eco/time/Win32/basis --check-stamp-file C:/eco/time/Win32/basis/utils/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/eco/libnfc/utils/CMakeLists.txt;C:\eco\libnfc\utils\CMakeLists.txt;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\Program Files\CMake\share\cmake-3.10\Modules\InstallRequiredSystemLibraries.cmake;C:\eco\libnfc\cmake\FixBundle.cmake.in;C:\eco\libnfc\utils\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\eco\time\Win32\basis\utils\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/eco/libnfc/utils/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/eco/libnfc -BC:/eco/time/Win32/basis --check-stamp-file C:/eco/time/Win32/basis/utils/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/eco/libnfc/utils/CMakeLists.txt;C:\eco\libnfc\utils\CMakeLists.txt;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\Program Files\CMake\share\cmake-3.10\Modules\InstallRequiredSystemLibraries.cmake;C:\eco\libnfc\cmake\FixBundle.cmake.in;C:\eco\libnfc\utils\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\eco\time\Win32\basis\utils\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/eco/libnfc/utils/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/eco/libnfc -BC:/eco/time/Win32/basis --check-stamp-file C:/eco/time/Win32/basis/utils/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/eco/libnfc/utils/CMakeLists.txt;C:\eco\libnfc\utils\CMakeLists.txt;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\Program Files\CMake\share\cmake-3.10\Modules\InstallRequiredSystemLibraries.cmake;C:\eco\libnfc\cmake\FixBundle.cmake.in;C:\eco\libnfc\utils\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\eco\time\Win32\basis\utils\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/eco/libnfc/utils/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/eco/libnfc -BC:/eco/time/Win32/basis --check-stamp-file C:/eco/time/Win32/basis/utils/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/eco/libnfc/utils/CMakeLists.txt;C:\eco\libnfc\utils\CMakeLists.txt;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\eco\libnfc\contrib\win32\version.rc.in;C:\Program Files\CMake\share\cmake-3.10\Modules\InstallRequiredSystemLibraries.cmake;C:\eco\libnfc\cmake\FixBundle.cmake.in;C:\eco\libnfc\utils\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\eco\time\Win32\basis\utils\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\eco\libnfc\utils\nfc-relay-picc.c"  />
+    <ResourceCompile Include="C:\eco\time\Win32\basis\windows\nfc-relay-picc.rc"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\eco\time\Win32\basis\ZERO_CHECK.vcxproj">
+      <Project>{0E545766-A7D6-3B3C-BD30-0165CC68F06A}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\libnfc\nfc.vcxproj">
+      <Project>{0D71B9F4-D427-30C6-A898-F8FBB2069FC7}</Project>
+      <Name>nfc</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfcutils.vcxproj">
+      <Project>{07C7B094-E1CD-39D2-9C2A-F1A97F65F9FA}</Project>
+      <Name>nfcutils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

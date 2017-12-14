@@ -1,4 +1,4 @@
-/*-
+﻿/*-
  * Free/Libre Near Field Communication (NFC) library
  *
  * Libnfc historical contributors:
@@ -123,9 +123,10 @@
 #define LOG_CATEGORY "libnfc.general"
 #define LOG_GROUP    NFC_LOG_GROUP_GENERAL
 
-struct nfc_driver_list {
-  const struct nfc_driver_list *next;
-  const struct nfc_driver *driver;
+struct nfc_driver_list
+{
+   const struct nfc_driver_list *next;
+   const struct nfc_driver *driver;
 };
 
 const struct nfc_driver_list *nfc_drivers = NULL;
@@ -134,28 +135,28 @@ static void
 nfc_drivers_init(void)
 {
 #if defined (DRIVER_PN53X_USB_ENABLED)
-  nfc_register_driver(&pn53x_usb_driver);
+   nfc_register_driver(&pn53x_usb_driver);
 #endif /* DRIVER_PN53X_USB_ENABLED */
 #if defined (DRIVER_ACR122_PCSC_ENABLED)
-  nfc_register_driver(&acr122_pcsc_driver);
+   nfc_register_driver(&acr122_pcsc_driver);
 #endif /* DRIVER_ACR122_PCSC_ENABLED */
 #if defined (DRIVER_ACR122_USB_ENABLED)
-  nfc_register_driver(&acr122_usb_driver);
+   nfc_register_driver(&acr122_usb_driver);
 #endif /* DRIVER_ACR122_USB_ENABLED */
 #if defined (DRIVER_ACR122S_ENABLED)
-  nfc_register_driver(&acr122s_driver);
+   nfc_register_driver(&acr122s_driver);
 #endif /* DRIVER_ACR122S_ENABLED */
 #if defined (DRIVER_PN532_UART_ENABLED)
-  nfc_register_driver(&pn532_uart_driver);
+   nfc_register_driver(&pn532_uart_driver);
 #endif /* DRIVER_PN532_UART_ENABLED */
 #if defined (DRIVER_PN532_SPI_ENABLED)
-  nfc_register_driver(&pn532_spi_driver);
+   nfc_register_driver(&pn532_spi_driver);
 #endif /* DRIVER_PN532_SPI_ENABLED */
 #if defined (DRIVER_PN532_I2C_ENABLED)
-  nfc_register_driver(&pn532_i2c_driver);
+   nfc_register_driver(&pn532_i2c_driver);
 #endif /* DRIVER_PN532_I2C_ENABLED */
 #if defined (DRIVER_ARYGON_ENABLED)
-  nfc_register_driver(&arygon_driver);
+   nfc_register_driver(&arygon_driver);
 #endif /* DRIVER_ARYGON_ENABLED */
 }
 
@@ -172,18 +173,18 @@ nfc_device_validate_modulation(nfc_device *pnd, const nfc_mode mode, const nfc_m
 int
 nfc_register_driver(const struct nfc_driver *ndr)
 {
-  if (!ndr)
-    return NFC_EINVARG;
+   if (!ndr)
+      return NFC_EINVARG;
 
-  struct nfc_driver_list *pndl = (struct nfc_driver_list *)malloc(sizeof(struct nfc_driver_list));
-  if (!pndl)
-    return NFC_ESOFT;
+   struct nfc_driver_list *pndl = (struct nfc_driver_list *)malloc(sizeof(struct nfc_driver_list));
+   if (!pndl)
+      return NFC_ESOFT;
 
-  pndl->driver = ndr;
-  pndl->next = nfc_drivers;
-  nfc_drivers = pndl;
+   pndl->driver = ndr;
+   pndl->next = nfc_drivers;
+   nfc_drivers = pndl;
 
-  return NFC_SUCCESS;
+   return NFC_SUCCESS;
 }
 
 /** @ingroup lib
@@ -194,13 +195,14 @@ nfc_register_driver(const struct nfc_driver *ndr)
 void
 nfc_init(nfc_context **context)
 {
-  *context = nfc_context_new();
-  if (!*context) {
-    perror("malloc");
-    return;
-  }
-  if (!nfc_drivers)
-    nfc_drivers_init();
+   *context = nfc_context_new();
+   if (!*context)
+   {
+      perror("malloc");
+      return;
+   }
+   if (!nfc_drivers)
+      nfc_drivers_init();
 }
 
 /** @ingroup lib
@@ -211,13 +213,14 @@ nfc_init(nfc_context **context)
 void
 nfc_exit(nfc_context *context)
 {
-  while (nfc_drivers) {
-    struct nfc_driver_list *pndl = (struct nfc_driver_list *) nfc_drivers;
-    nfc_drivers = pndl->next;
-    free(pndl);
-  }
+   while (nfc_drivers)
+   {
+      struct nfc_driver_list *pndl = (struct nfc_driver_list *) nfc_drivers;
+      nfc_drivers = pndl->next;
+      free(pndl);
+   }
 
-  nfc_context_free(context);
+   nfc_context_free(context);
 }
 
 /** @ingroup dev
@@ -240,57 +243,68 @@ nfc_exit(nfc_context *context)
 nfc_device *
 nfc_open(nfc_context *context, const nfc_connstring connstring)
 {
-  nfc_device *pnd = NULL;
+   nfc_device *pnd = NULL;
 
-  nfc_connstring ncs;
-  if (connstring == NULL) {
-    if (!nfc_list_devices(context, &ncs, 1)) {
-      return NULL;
-    }
-  } else {
-    strncpy(ncs, connstring, sizeof(nfc_connstring));
-    ncs[sizeof(nfc_connstring) - 1] = '\0';
-  }
-
-  // Search through the device list for an available device
-  const struct nfc_driver_list *pndl = nfc_drivers;
-  while (pndl) {
-    const struct nfc_driver *ndr = pndl->driver;
-
-    // Specific device is requested: using device description
-    if (0 != strncmp(ndr->name, ncs, strlen(ndr->name))) {
-      // Check if connstring driver is usb -> accept any driver *_usb
-      if ((0 != strncmp("usb", ncs, strlen("usb"))) || 0 != strncmp("_usb", ndr->name + (strlen(ndr->name) - 4), 4)) {
-        pndl = pndl->next;
-        continue;
+   nfc_connstring ncs;
+   if (connstring == NULL)
+   {
+      if (!nfc_list_devices(context, &ncs, 1))
+      {
+         return NULL;
       }
-    }
+   }
+   else
+   {
+      strncpy(ncs, connstring, sizeof(nfc_connstring));
+      ncs[sizeof(nfc_connstring) - 1] = '\0';
+   }
 
-    pnd = ndr->open(context, ncs);
-    // Test if the opening was successful
-    if (pnd == NULL) {
-      if (0 == strncmp("usb", ncs, strlen("usb"))) {
-        // We've to test the other usb drivers before giving up
-        pndl = pndl->next;
-        continue;
-      }
-      log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "Unable to open \"%s\".", ncs);
-      return NULL;
-    }
-    for (uint32_t i = 0; i < context->user_defined_device_count; i++) {
-      if (strcmp(ncs, context->user_defined_devices[i].connstring) == 0) {
-        // This is a device sets by user, we use the device name given by user
-        strcpy(pnd->name, context->user_defined_devices[i].name);
-        break;
-      }
-    }
-    log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "\"%s\" (%s) has been claimed.", pnd->name, pnd->connstring);
-    return pnd;
-  }
+   // Search through the device list for an available device
+   const struct nfc_driver_list *pndl = nfc_drivers;
+   while (pndl)
+   {
+      const struct nfc_driver *ndr = pndl->driver;
 
-  // Too bad, no driver can decode connstring
-  log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "No driver available to handle \"%s\".", ncs);
-  return NULL;
+      // Specific device is requested: using device description
+      if (0 != strncmp(ndr->name, ncs, strlen(ndr->name)))
+      {
+         // Check if connstring driver is usb -> accept any driver *_usb
+         if ((0 != strncmp("usb", ncs, strlen("usb"))) || 0 != strncmp("_usb", ndr->name + (strlen(ndr->name) - 4), 4))
+         {
+            pndl = pndl->next;
+            continue;
+         }
+      }
+
+      pnd = ndr->open(context, ncs);
+      // Test if the opening was successful
+      if (pnd == NULL)
+      {
+         if (0 == strncmp("usb", ncs, strlen("usb")))
+         {
+            // We've to test the other usb drivers before giving up
+            pndl = pndl->next;
+            continue;
+         }
+         log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "Unable to open \"%s\".", ncs);
+         return NULL;
+      }
+      for (uint32_t i = 0; i < context->user_defined_device_count; i++)
+      {
+         if (strcmp(ncs, context->user_defined_devices[i].connstring) == 0)
+         {
+            // This is a device sets by user, we use the device name given by user
+            strcpy(pnd->name, context->user_defined_devices[i].name);
+            break;
+         }
+      }
+      log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "\"%s\" (%s) has been claimed.", pnd->name, pnd->connstring);
+      return pnd;
+   }
+
+   // Too bad, no driver can decode connstring
+   log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "No driver available to handle \"%s\".", ncs);
+   return NULL;
 }
 
 /** @ingroup dev
@@ -302,10 +316,11 @@ nfc_open(nfc_context *context, const nfc_connstring connstring)
 void
 nfc_close(nfc_device *pnd)
 {
-  if (pnd) {
-    // Close, clean up and release the device
-    pnd->driver->close(pnd);
-  }
+   if (pnd)
+   {
+      // Close, clean up and release the device
+      pnd->driver->close(pnd);
+   }
 }
 
 /** @ingroup dev
@@ -319,80 +334,96 @@ nfc_close(nfc_device *pnd)
 size_t
 nfc_list_devices(nfc_context *context, nfc_connstring connstrings[], const size_t connstrings_len)
 {
-  size_t device_found = 0;
+   size_t device_found = 0;
 
 #ifdef CONFFILES
-  // Load manually configured devices (from config file and env variables)
-  // TODO From env var...
-  for (uint32_t i = 0; i < context->user_defined_device_count; i++) {
-    if (context->user_defined_devices[i].optional) {
-      // let's make sure the device exists
-      nfc_device *pnd = NULL;
+   // Load manually configured devices (from config file and env variables)
+   // TODO From env var...
+   for (uint32_t i = 0; i < context->user_defined_device_count; i++)
+   {
+      if (context->user_defined_devices[i].optional)
+      {
+         // let's make sure the device exists
+         nfc_device *pnd = NULL;
 
 #ifdef ENVVARS
-      char *env_log_level = getenv("LIBNFC_LOG_LEVEL");
-      char *old_env_log_level = NULL;
-      // do it silently
-      if (env_log_level) {
-        if ((old_env_log_level = malloc(strlen(env_log_level) + 1)) == NULL) {
-          log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_ERROR, "%s", "Unable to malloc()");
-          return 0;
-        }
-        strcpy(old_env_log_level, env_log_level);
-      }
-      setenv("LIBNFC_LOG_LEVEL", "0", 1);
+         char *env_log_level = getenv("LIBNFC_LOG_LEVEL");
+         char *old_env_log_level = NULL;
+         // do it silently
+         if (env_log_level)
+         {
+            if ((old_env_log_level = malloc(strlen(env_log_level) + 1)) == NULL)
+            {
+               log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_ERROR, "%s", "Unable to malloc()");
+               return 0;
+            }
+            strcpy(old_env_log_level, env_log_level);
+         }
+         setenv("LIBNFC_LOG_LEVEL", "0", 1);
 #endif // ENVVARS
 
-      pnd = nfc_open(context, context->user_defined_devices[i].connstring);
+         pnd = nfc_open(context, context->user_defined_devices[i].connstring);
 
 #ifdef ENVVARS
-      if (old_env_log_level) {
-        setenv("LIBNFC_LOG_LEVEL", old_env_log_level, 1);
-        free(old_env_log_level);
-      } else {
-        unsetenv("LIBNFC_LOG_LEVEL");
-      }
+         if (old_env_log_level)
+         {
+            setenv("LIBNFC_LOG_LEVEL", old_env_log_level, 1);
+            free(old_env_log_level);
+         }
+         else
+         {
+            unsetenv("LIBNFC_LOG_LEVEL");
+         }
 #endif // ENVVARS
 
-      if (pnd) {
-        nfc_close(pnd);
-        log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "User device %s found", context->user_defined_devices[i].name);
-        strcpy((char *)(connstrings + device_found), context->user_defined_devices[i].connstring);
-        device_found ++;
-        if (device_found == connstrings_len)
-          break;
+         if (pnd)
+         {
+            nfc_close(pnd);
+            log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "User device %s found", context->user_defined_devices[i].name);
+            strcpy((char *)(connstrings + device_found), context->user_defined_devices[i].connstring);
+            device_found ++;
+            if (device_found == connstrings_len)
+               break;
+         }
       }
-    } else {
-      // manual choice is not marked as optional so let's take it blindly
-      strcpy((char *)(connstrings + device_found), context->user_defined_devices[i].connstring);
-      device_found++;
-      if (device_found >= connstrings_len)
-        return device_found;
-    }
-  }
+      else
+      {
+         // manual choice is not marked as optional so let's take it blindly
+         strcpy((char *)(connstrings + device_found), context->user_defined_devices[i].connstring);
+         device_found++;
+         if (device_found >= connstrings_len)
+            return device_found;
+      }
+   }
 #endif // CONFFILES
 
-  // Device auto-detection
-  if (context->allow_autoscan) {
-    const struct nfc_driver_list *pndl = nfc_drivers;
-    while (pndl) {
-      const struct nfc_driver *ndr = pndl->driver;
-      if ((ndr->scan_type == NOT_INTRUSIVE) || ((context->allow_intrusive_scan) && (ndr->scan_type == INTRUSIVE))) {
-        size_t _device_found = ndr->scan(context, connstrings + (device_found), connstrings_len - (device_found));
-        log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "%ld device(s) found using %s driver", (unsigned long) _device_found, ndr->name);
-        if (_device_found > 0) {
-          device_found += _device_found;
-          if (device_found == connstrings_len)
-            break;
-        }
-      } // scan_type is INTRUSIVE but not allowed or NOT_AVAILABLE
-      pndl = pndl->next;
-    }
-  } else if (context->user_defined_device_count == 0) {
-    log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_INFO, "Warning: %s", "user must specify device(s) manually when autoscan is disabled");
-  }
+   // Device auto-detection
+   if (context->allow_autoscan)
+   {
+      const struct nfc_driver_list *pndl = nfc_drivers;
+      while (pndl)
+      {
+         const struct nfc_driver *ndr = pndl->driver;
+         if ((ndr->scan_type == NOT_INTRUSIVE) || ((context->allow_intrusive_scan) && (ndr->scan_type == INTRUSIVE)))
+         {
+            size_t _device_found = ndr->scan(context, connstrings + (device_found), connstrings_len - (device_found));
+            log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "%ld device(s) found using %s driver", (unsigned long) _device_found, ndr->name);
+            if (_device_found > 0)
+            {
+               device_found += _device_found;
+               if (device_found == connstrings_len)
+                  break;
+            }
+         } // scan_type is INTRUSIVE but not allowed or NOT_AVAILABLE
+         pndl = pndl->next;
+      }
+   }
+   else if (context->user_defined_device_count == 0)
+   {
+      log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_INFO, "Warning: %s", "user must specify device(s) manually when autoscan is disabled");
+   }
 
-  return device_found;
+   return device_found;
 }
 
 /** @ingroup properties
@@ -409,7 +440,7 @@ nfc_list_devices(nfc_context *context, nfc_connstring connstrings[], const size_
 int
 nfc_device_set_property_int(nfc_device *pnd, const nfc_property property, const int value)
 {
-  HAL(device_set_property_int, pnd, property, value);
+   HAL(device_set_property_int, pnd, property, value);
 }
 
 
@@ -428,7 +459,7 @@ nfc_device_set_property_int(nfc_device *pnd, const nfc_property property, const 
 int
 nfc_device_set_property_bool(nfc_device *pnd, const nfc_property property, const bool bEnable)
 {
-  HAL(device_set_property_bool, pnd, property, bEnable);
+   HAL(device_set_property_bool, pnd, property, bEnable);
 }
 
 /** @ingroup initiator
@@ -454,32 +485,32 @@ nfc_device_set_property_bool(nfc_device *pnd, const nfc_property property, const
 int
 nfc_initiator_init(nfc_device *pnd)
 {
-  int res = 0;
-  // Drop the field for a while
-  if ((res = nfc_device_set_property_bool(pnd, NP_ACTIVATE_FIELD, false)) < 0)
-    return res;
-  // Enable field so more power consuming cards can power themselves up
-  if ((res = nfc_device_set_property_bool(pnd, NP_ACTIVATE_FIELD, true)) < 0)
-    return res;
-  // Let the device try forever to find a target/tag
-  if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, true)) < 0)
-    return res;
-  // Activate auto ISO14443-4 switching by default
-  if ((res = nfc_device_set_property_bool(pnd, NP_AUTO_ISO14443_4, true)) < 0)
-    return res;
-  // Force 14443-A mode
-  if ((res = nfc_device_set_property_bool(pnd, NP_FORCE_ISO14443_A, true)) < 0)
-    return res;
-  // Force speed at 106kbps
-  if ((res = nfc_device_set_property_bool(pnd, NP_FORCE_SPEED_106, true)) < 0)
-    return res;
-  // Disallow invalid frame
-  if ((res = nfc_device_set_property_bool(pnd, NP_ACCEPT_INVALID_FRAMES, false)) < 0)
-    return res;
-  // Disallow multiple frames
-  if ((res = nfc_device_set_property_bool(pnd, NP_ACCEPT_MULTIPLE_FRAMES, false)) < 0)
-    return res;
-  HAL(initiator_init, pnd);
+   int res = 0;
+   // Drop the field for a while
+   if ((res = nfc_device_set_property_bool(pnd, NP_ACTIVATE_FIELD, false)) < 0)
+      return res;
+   // Enable field so more power consuming cards can power themselves up
+   if ((res = nfc_device_set_property_bool(pnd, NP_ACTIVATE_FIELD, true)) < 0)
+      return res;
+   // Let the device try forever to find a target/tag
+   if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, true)) < 0)
+      return res;
+   // Activate auto ISO14443-4 switching by default
+   if ((res = nfc_device_set_property_bool(pnd, NP_AUTO_ISO14443_4, true)) < 0)
+      return res;
+   // Force 14443-A mode
+   if ((res = nfc_device_set_property_bool(pnd, NP_FORCE_ISO14443_A, true)) < 0)
+      return res;
+   // Force speed at 106kbps
+   if ((res = nfc_device_set_property_bool(pnd, NP_FORCE_SPEED_106, true)) < 0)
+      return res;
+   // Disallow invalid frame
+   if ((res = nfc_device_set_property_bool(pnd, NP_ACCEPT_INVALID_FRAMES, false)) < 0)
+      return res;
+   // Disallow multiple frames
+   if ((res = nfc_device_set_property_bool(pnd, NP_ACCEPT_MULTIPLE_FRAMES, false)) < 0)
+      return res;
+   HAL(initiator_init, pnd);
 }
 
 /** @ingroup initiator
@@ -494,7 +525,7 @@ nfc_initiator_init(nfc_device *pnd)
 int
 nfc_initiator_init_secure_element(nfc_device *pnd)
 {
-  HAL(initiator_init_secure_element, pnd);
+   HAL(initiator_init_secure_element, pnd);
 }
 
 /** @ingroup initiator
@@ -526,25 +557,34 @@ nfc_initiator_select_passive_target(nfc_device *pnd,
                                     const uint8_t *pbtInitData, const size_t szInitData,
                                     nfc_target *pnt)
 {
-  uint8_t *abtInit = NULL;
-  uint8_t abtTmpInit[MAX(12, szInitData)];
-  size_t  szInit = 0;
-  int res;
-  if ((res = nfc_device_validate_modulation(pnd, N_INITIATOR, &nm)) != NFC_SUCCESS)
-    return res;
-  if (szInitData == 0) {
-    // Provide default values, if any
-    prepare_initiator_data(nm, &abtInit, &szInit);
-  } else if (nm.nmt == NMT_ISO14443A) {
-    abtInit = abtTmpInit;
-    iso14443_cascade_uid(pbtInitData, szInitData, abtInit, &szInit);
-  } else {
-    abtInit = abtTmpInit;
-    memcpy(abtInit, pbtInitData, szInitData);
-    szInit = szInitData;
-  }
+   uint8_t *abtInit = NULL;
+   uint8_t * abtTmpInit = malloc(MAX(12, szInitData));
+   size_t  szInit = 0;
+   int res;
+   if ((res = nfc_device_validate_modulation(pnd, N_INITIATOR, &nm)) != NFC_SUCCESS)
+   {
+      free(abtTmpInit);
+      return res;
+   }
+   if (szInitData == 0)
+   {
+      // Provide default values, if any
+      prepare_initiator_data(nm, &abtInit, &szInit);
+   }
+   else if (nm.nmt == NMT_ISO14443A)
+   {
+      abtInit = abtTmpInit;
+      iso14443_cascade_uid(pbtInitData, szInitData, abtInit, &szInit);
+   }
+   else
+   {
+      abtInit = abtTmpInit;
+      memcpy(abtInit, pbtInitData, szInitData);
+      szInit = szInitData;
+   }
 
-  HAL(initiator_select_passive_target, pnd, nm, abtInit, szInit, pnt);
+   HAL(initiator_select_passive_target, pnd, nm, abtInit, szInit, pnt);
+   free(abtTmpInit);
 }
 
 /** @ingroup initiator
@@ -568,53 +608,62 @@ nfc_initiator_list_passive_targets(nfc_device *pnd,
                                    const nfc_modulation nm,
                                    nfc_target ant[], const size_t szTargets)
 {
-  nfc_target nt;
-  size_t  szTargetFound = 0;
-  uint8_t *pbtInitData = NULL;
-  size_t  szInitDataLen = 0;
-  int res = 0;
+   nfc_target nt;
+   size_t  szTargetFound = 0;
+   uint8_t *pbtInitData = NULL;
+   size_t  szInitDataLen = 0;
+   int res = 0;
 
-  pnd->last_error = 0;
+   pnd->last_error = 0;
 
-  // Let the reader only try once to find a tag
-  bool bInfiniteSelect = pnd->bInfiniteSelect;
-  if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, false)) < 0) {
-    return res;
-  }
-
-  prepare_initiator_data(nm, &pbtInitData, &szInitDataLen);
-
-  while (nfc_initiator_select_passive_target(pnd, nm, pbtInitData, szInitDataLen, &nt) > 0) {
-    size_t i;
-    bool seen = false;
-    // Check if we've already seen this tag
-    for (i = 0; i < szTargetFound; i++) {
-      if (memcmp(&(ant[i]), &nt, sizeof(nfc_target)) == 0) {
-        seen = true;
-      }
-    }
-    if (seen) {
-      break;
-    }
-    memcpy(&(ant[szTargetFound]), &nt, sizeof(nfc_target));
-    szTargetFound++;
-    if (szTargets == szTargetFound) {
-      break;
-    }
-    nfc_initiator_deselect_target(pnd);
-    // deselect has no effect on FeliCa, Jewel and Thinfilm cards so we'll stop after one...
-    // ISO/IEC 14443 B' cards are polled at 100% probability so it's not possible to detect correctly two cards at the same time
-    if ((nm.nmt == NMT_FELICA) || (nm.nmt == NMT_JEWEL) || (nm.nmt == NMT_BARCODE) ||
-        (nm.nmt == NMT_ISO14443BI) || (nm.nmt == NMT_ISO14443B2SR) || (nm.nmt == NMT_ISO14443B2CT)) {
-      break;
-    }
-  }
-  if (bInfiniteSelect) {
-    if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, true)) < 0) {
+   // Let the reader only try once to find a tag
+   bool bInfiniteSelect = pnd->bInfiniteSelect;
+   if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, false)) < 0)
+   {
       return res;
-    }
-  }
-  return szTargetFound;
+   }
+
+   prepare_initiator_data(nm, &pbtInitData, &szInitDataLen);
+
+   while (nfc_initiator_select_passive_target(pnd, nm, pbtInitData, szInitDataLen, &nt) > 0)
+   {
+      size_t i;
+      bool seen = false;
+      // Check if we've already seen this tag
+      for (i = 0; i < szTargetFound; i++)
+      {
+         if (memcmp(&(ant[i]), &nt, sizeof(nfc_target)) == 0)
+         {
+            seen = true;
+         }
+      }
+      if (seen)
+      {
+         break;
+      }
+      memcpy(&(ant[szTargetFound]), &nt, sizeof(nfc_target));
+      szTargetFound++;
+      if (szTargets == szTargetFound)
+      {
+         break;
+      }
+      nfc_initiator_deselect_target(pnd);
+      // deselect has no effect on FeliCa, Jewel and Thinfilm cards so we'll stop after one...
+      // ISO/IEC 14443 B' cards are polled at 100% probability so it's not possible to detect correctly two cards at the same time
+      if ((nm.nmt == NMT_FELICA) || (nm.nmt == NMT_JEWEL) || (nm.nmt == NMT_BARCODE) ||
+            (nm.nmt == NMT_ISO14443BI) || (nm.nmt == NMT_ISO14443B2SR) || (nm.nmt == NMT_ISO14443B2CT))
+      {
+         break;
+      }
+   }
+   if (bInfiniteSelect)
+   {
+      if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, true)) < 0)
+      {
+         return res;
+      }
+   }
+   return szTargetFound;
 }
 
 /** @ingroup initiator
@@ -636,7 +685,7 @@ nfc_initiator_poll_target(nfc_device *pnd,
                           const uint8_t uiPollNr, const uint8_t uiPeriod,
                           nfc_target *pnt)
 {
-  HAL(initiator_poll_target, pnd, pnmModulations, szModulations, uiPollNr, uiPeriod, pnt);
+   HAL(initiator_poll_target, pnd, pnmModulations, szModulations, uiPollNr, uiPeriod, pnt);
 }
 
 
@@ -665,7 +714,7 @@ nfc_initiator_select_dep_target(nfc_device *pnd,
                                 const nfc_dep_mode ndm, const nfc_baud_rate nbr,
                                 const nfc_dep_info *pndiInitiator, nfc_target *pnt, const int timeout)
 {
-  HAL(initiator_select_dep_target, pnd, ndm, nbr, pndiInitiator, pnt, timeout);
+   HAL(initiator_select_dep_target, pnd, ndm, nbr, pndiInitiator, pnt, timeout);
 }
 
 /** @ingroup initiator
@@ -692,33 +741,39 @@ nfc_initiator_poll_dep_target(struct nfc_device *pnd,
                               nfc_target *pnt,
                               const int timeout)
 {
-  const int period = 300;
-  int remaining_time = timeout;
-  int res;
-  int result = 0;
-  bool bInfiniteSelect = pnd->bInfiniteSelect;
-  if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, true)) < 0)
-    return res;
-  while (remaining_time > 0) {
-    if ((res = nfc_initiator_select_dep_target(pnd, ndm, nbr, pndiInitiator, pnt, period)) < 0) {
-      if (res != NFC_ETIMEOUT) {
-        result = res;
-        goto end;
-      }
-    }
-    if (res == 1) {
-      result = res;
-      goto end;
-    }
-    remaining_time -= period;
-  }
-end:
-  if (! bInfiniteSelect) {
-    if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, false)) < 0) {
+   const int period = 300;
+   int remaining_time = timeout;
+   int res;
+   int result = 0;
+   bool bInfiniteSelect = pnd->bInfiniteSelect;
+   if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, true)) < 0)
       return res;
-    }
-  }
-  return result;
+   while (remaining_time > 0)
+   {
+      if ((res = nfc_initiator_select_dep_target(pnd, ndm, nbr, pndiInitiator, pnt, period)) < 0)
+      {
+         if (res != NFC_ETIMEOUT)
+         {
+            result = res;
+            goto end;
+         }
+      }
+      if (res == 1)
+      {
+         result = res;
+         goto end;
+      }
+      remaining_time -= period;
+   }
+end:
+   if (! bInfiniteSelect)
+   {
+      if ((res = nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, false)) < 0)
+      {
+         return res;
+      }
+   }
+   return result;
 }
 
 /** @ingroup initiator
@@ -736,7 +791,7 @@ end:
 int
 nfc_initiator_deselect_target(nfc_device *pnd)
 {
-  HAL(initiator_deselect_target, pnd);
+   HAL(initiator_deselect_target, pnd);
 }
 
 /** @ingroup initiator
@@ -771,7 +826,7 @@ int
 nfc_initiator_transceive_bytes(nfc_device *pnd, const uint8_t *pbtTx, const size_t szTx, uint8_t *pbtRx,
                                const size_t szRx, int timeout)
 {
-  HAL(initiator_transceive_bytes, pnd, pbtTx, szTx, pbtRx, szRx, timeout)
+   HAL(initiator_transceive_bytes, pnd, pbtTx, szTx, pbtRx, szRx, timeout)
 }
 
 /** @ingroup initiator
@@ -816,8 +871,8 @@ nfc_initiator_transceive_bits(nfc_device *pnd,
                               uint8_t *pbtRx, const size_t szRx,
                               uint8_t *pbtRxPar)
 {
-  (void)szRx;
-  HAL(initiator_transceive_bits, pnd, pbtTx, szTxBits, pbtTxPar, pbtRx, pbtRxPar);
+   (void)szRx;
+   HAL(initiator_transceive_bits, pnd, pbtTx, szTxBits, pbtTxPar, pbtRx, pbtRxPar);
 }
 
 /** @ingroup initiator
@@ -852,7 +907,7 @@ nfc_initiator_transceive_bytes_timed(nfc_device *pnd,
                                      uint8_t *pbtRx, const size_t szRx,
                                      uint32_t *cycles)
 {
-  HAL(initiator_transceive_bytes_timed, pnd, pbtTx, szTx, pbtRx, szRx, cycles);
+   HAL(initiator_transceive_bytes_timed, pnd, pbtTx, szTx, pbtRx, szRx, cycles);
 }
 
 /** @ingroup initiator
@@ -868,7 +923,7 @@ nfc_initiator_transceive_bytes_timed(nfc_device *pnd,
 int
 nfc_initiator_target_is_present(nfc_device *pnd, const nfc_target *pnt)
 {
-  HAL(initiator_target_is_present, pnd, pnt);
+   HAL(initiator_target_is_present, pnd, pnt);
 }
 
 /** @ingroup initiator
@@ -899,8 +954,8 @@ nfc_initiator_transceive_bits_timed(nfc_device *pnd,
                                     uint8_t *pbtRxPar,
                                     uint32_t *cycles)
 {
-  (void)szRx;
-  HAL(initiator_transceive_bits_timed, pnd, pbtTx, szTxBits, pbtTxPar, pbtRx, pbtRxPar, cycles);
+   (void)szRx;
+   HAL(initiator_transceive_bits_timed, pnd, pbtTx, szTxBits, pbtTxPar, pbtRx, pbtRxPar, cycles);
 }
 
 /** @ingroup target
@@ -939,32 +994,32 @@ nfc_initiator_transceive_bits_timed(nfc_device *pnd,
 int
 nfc_target_init(nfc_device *pnd, nfc_target *pnt, uint8_t *pbtRx, const size_t szRx, int timeout)
 {
-  int res = 0;
-  // Disallow invalid frame
-  if ((res = nfc_device_set_property_bool(pnd, NP_ACCEPT_INVALID_FRAMES, false)) < 0)
-    return res;
-  // Disallow multiple frames
-  if ((res = nfc_device_set_property_bool(pnd, NP_ACCEPT_MULTIPLE_FRAMES, false)) < 0)
-    return res;
-  // Make sure we reset the CRC and parity to chip handling.
-  if ((res = nfc_device_set_property_bool(pnd, NP_HANDLE_CRC, true)) < 0)
-    return res;
-  if ((res = nfc_device_set_property_bool(pnd, NP_HANDLE_PARITY, true)) < 0)
-    return res;
-  // Activate auto ISO14443-4 switching by default
-  if ((res = nfc_device_set_property_bool(pnd, NP_AUTO_ISO14443_4, true)) < 0)
-    return res;
-  // Activate "easy framing" feature by default
-  if ((res = nfc_device_set_property_bool(pnd, NP_EASY_FRAMING, true)) < 0)
-    return res;
-  // Deactivate the CRYPTO1 cipher, it may could cause problems when still active
-  if ((res = nfc_device_set_property_bool(pnd, NP_ACTIVATE_CRYPTO1, false)) < 0)
-    return res;
-  // Drop explicitely the field
-  if ((res = nfc_device_set_property_bool(pnd, NP_ACTIVATE_FIELD, false)) < 0)
-    return res;
+   int res = 0;
+   // Disallow invalid frame
+   if ((res = nfc_device_set_property_bool(pnd, NP_ACCEPT_INVALID_FRAMES, false)) < 0)
+      return res;
+   // Disallow multiple frames
+   if ((res = nfc_device_set_property_bool(pnd, NP_ACCEPT_MULTIPLE_FRAMES, false)) < 0)
+      return res;
+   // Make sure we reset the CRC and parity to chip handling.
+   if ((res = nfc_device_set_property_bool(pnd, NP_HANDLE_CRC, true)) < 0)
+      return res;
+   if ((res = nfc_device_set_property_bool(pnd, NP_HANDLE_PARITY, true)) < 0)
+      return res;
+   // Activate auto ISO14443-4 switching by default
+   if ((res = nfc_device_set_property_bool(pnd, NP_AUTO_ISO14443_4, true)) < 0)
+      return res;
+   // Activate "easy framing" feature by default
+   if ((res = nfc_device_set_property_bool(pnd, NP_EASY_FRAMING, true)) < 0)
+      return res;
+   // Deactivate the CRYPTO1 cipher, it may could cause problems when still active
+   if ((res = nfc_device_set_property_bool(pnd, NP_ACTIVATE_CRYPTO1, false)) < 0)
+      return res;
+   // Drop explicitely the field
+   if ((res = nfc_device_set_property_bool(pnd, NP_ACTIVATE_FIELD, false)) < 0)
+      return res;
 
-  HAL(target_init, pnd, pnt, pbtRx, szRx, timeout);
+   HAL(target_init, pnd, pnt, pbtRx, szRx, timeout);
 }
 
 /** @ingroup dev
@@ -980,7 +1035,7 @@ nfc_target_init(nfc_device *pnd, nfc_target *pnt, uint8_t *pbtRx, const size_t s
 int
 nfc_idle(nfc_device *pnd)
 {
-  HAL(idle, pnd);
+   HAL(idle, pnd);
 }
 
 /** @ingroup dev
@@ -997,7 +1052,7 @@ nfc_idle(nfc_device *pnd)
 int
 nfc_abort_command(nfc_device *pnd)
 {
-  HAL(abort_command, pnd);
+   HAL(abort_command, pnd);
 }
 
 /** @ingroup target
@@ -1018,7 +1073,7 @@ nfc_abort_command(nfc_device *pnd)
 int
 nfc_target_send_bytes(nfc_device *pnd, const uint8_t *pbtTx, const size_t szTx, int timeout)
 {
-  HAL(target_send_bytes, pnd, pbtTx, szTx, timeout);
+   HAL(target_send_bytes, pnd, pbtTx, szTx, timeout);
 }
 
 /** @ingroup target
@@ -1038,7 +1093,7 @@ nfc_target_send_bytes(nfc_device *pnd, const uint8_t *pbtTx, const size_t szTx, 
 int
 nfc_target_receive_bytes(nfc_device *pnd, uint8_t *pbtRx, const size_t szRx, int timeout)
 {
-  HAL(target_receive_bytes, pnd, pbtRx, szRx, timeout);
+   HAL(target_receive_bytes, pnd, pbtRx, szRx, timeout);
 }
 
 /** @ingroup target
@@ -1055,7 +1110,7 @@ nfc_target_receive_bytes(nfc_device *pnd, uint8_t *pbtRx, const size_t szRx, int
 int
 nfc_target_send_bits(nfc_device *pnd, const uint8_t *pbtTx, const size_t szTxBits, const uint8_t *pbtTxPar)
 {
-  HAL(target_send_bits, pnd, pbtTx, szTxBits, pbtTxPar);
+   HAL(target_send_bits, pnd, pbtTx, szTxBits, pbtTxPar);
 }
 
 /** @ingroup target
@@ -1077,27 +1132,29 @@ nfc_target_send_bits(nfc_device *pnd, const uint8_t *pbtTx, const size_t szTxBit
 int
 nfc_target_receive_bits(nfc_device *pnd, uint8_t *pbtRx, const size_t szRx, uint8_t *pbtRxPar)
 {
-  HAL(target_receive_bits, pnd, pbtRx, szRx, pbtRxPar);
+   HAL(target_receive_bits, pnd, pbtRx, szRx, pbtRxPar);
 }
 
-static struct sErrorMessage {
-  int     iErrorCode;
-  const char *pcErrorMsg;
-} sErrorMessages[] = {
-  /* Chip-level errors (internal errors, RF errors, etc.) */
-  { NFC_SUCCESS, "Success" },
-  { NFC_EIO, "Input / Output Error" },
-  { NFC_EINVARG, "Invalid argument(s)" },
-  { NFC_EDEVNOTSUPP, "Not Supported by Device" },
-  { NFC_ENOTSUCHDEV, "No Such Device" },
-  { NFC_EOVFLOW, "Buffer Overflow" },
-  { NFC_ETIMEOUT, "Timeout" },
-  { NFC_EOPABORTED, "Operation Aborted" },
-  { NFC_ENOTIMPL, "Not (yet) Implemented" },
-  { NFC_ETGRELEASED, "Target Released" },
-  { NFC_EMFCAUTHFAIL, "Mifare Authentication Failed" },
-  { NFC_ERFTRANS, "RF Transmission Error" },
-  { NFC_ECHIP, "Device's Internal Chip Error" },
+static struct sErrorMessage
+{
+   int     iErrorCode;
+   const char *pcErrorMsg;
+} sErrorMessages[] =
+{
+   /* Chip-level errors (internal errors, RF errors, etc.) */
+   { NFC_SUCCESS, "Success" },
+   { NFC_EIO, "Input / Output Error" },
+   { NFC_EINVARG, "Invalid argument(s)" },
+   { NFC_EDEVNOTSUPP, "Not Supported by Device" },
+   { NFC_ENOTSUCHDEV, "No Such Device" },
+   { NFC_EOVFLOW, "Buffer Overflow" },
+   { NFC_ETIMEOUT, "Timeout" },
+   { NFC_EOPABORTED, "Operation Aborted" },
+   { NFC_ENOTIMPL, "Not (yet) Implemented" },
+   { NFC_ETGRELEASED, "Target Released" },
+   { NFC_EMFCAUTHFAIL, "Mifare Authentication Failed" },
+   { NFC_ERFTRANS, "RF Transmission Error" },
+   { NFC_ECHIP, "Device's Internal Chip Error" },
 };
 
 /** @ingroup error
@@ -1109,16 +1166,18 @@ static struct sErrorMessage {
 const char *
 nfc_strerror(const nfc_device *pnd)
 {
-  const char *pcRes = "Unknown error";
-  size_t  i;
-  for (i = 0; i < (sizeof(sErrorMessages) / sizeof(struct sErrorMessage)); i++) {
-    if (sErrorMessages[i].iErrorCode == pnd->last_error) {
-      pcRes = sErrorMessages[i].pcErrorMsg;
-      break;
-    }
-  }
+   const char *pcRes = "Unknown error";
+   size_t  i;
+   for (i = 0; i < (sizeof(sErrorMessages) / sizeof(struct sErrorMessage)); i++)
+   {
+      if (sErrorMessages[i].iErrorCode == pnd->last_error)
+      {
+         pcRes = sErrorMessages[i].pcErrorMsg;
+         break;
+      }
+   }
 
-  return pcRes;
+   return pcRes;
 }
 
 /** @ingroup error
@@ -1132,7 +1191,7 @@ nfc_strerror(const nfc_device *pnd)
 int
 nfc_strerror_r(const nfc_device *pnd, char *pcStrErrBuf, size_t szBufLen)
 {
-  return (snprintf(pcStrErrBuf, szBufLen, "%s", nfc_strerror(pnd)) < 0) ? -1 : 0;
+   return (snprintf(pcStrErrBuf, szBufLen, "%s", nfc_strerror(pnd)) < 0) ? -1 : 0;
 }
 
 /** @ingroup error
@@ -1144,7 +1203,7 @@ nfc_strerror_r(const nfc_device *pnd, char *pcStrErrBuf, size_t szBufLen)
 void
 nfc_perror(const nfc_device *pnd, const char *pcString)
 {
-  fprintf(stderr, "%s: %s\n", pcString, nfc_strerror(pnd));
+   fprintf(stderr, "%s: %s\n", pcString, nfc_strerror(pnd));
 }
 
 /** @ingroup error
@@ -1156,7 +1215,7 @@ nfc_perror(const nfc_device *pnd, const char *pcString)
 int
 nfc_device_get_last_error(const nfc_device *pnd)
 {
-  return pnd->last_error;
+   return pnd->last_error;
 }
 
 /* Special data accessors */
@@ -1170,7 +1229,7 @@ nfc_device_get_last_error(const nfc_device *pnd)
 const char *
 nfc_device_get_name(nfc_device *pnd)
 {
-  return pnd->name;
+   return pnd->name;
 }
 
 /** @ingroup data
@@ -1182,7 +1241,7 @@ nfc_device_get_name(nfc_device *pnd)
 const char *
 nfc_device_get_connstring(nfc_device *pnd)
 {
-  return pnd->connstring;
+   return pnd->connstring;
 }
 
 /** @ingroup data
@@ -1196,7 +1255,7 @@ nfc_device_get_connstring(nfc_device *pnd)
 int
 nfc_device_get_supported_modulation(nfc_device *pnd, const nfc_mode mode, const nfc_modulation_type **const supported_mt)
 {
-  HAL(get_supported_modulation, pnd, mode, supported_mt);
+   HAL(get_supported_modulation, pnd, mode, supported_mt);
 }
 
 /** @ingroup data
@@ -1210,7 +1269,7 @@ nfc_device_get_supported_modulation(nfc_device *pnd, const nfc_mode mode, const 
 int
 nfc_device_get_supported_baud_rate(nfc_device *pnd, const nfc_modulation_type nmt, const nfc_baud_rate **const supported_br)
 {
-  HAL(get_supported_baud_rate, pnd, N_INITIATOR, nmt, supported_br);
+   HAL(get_supported_baud_rate, pnd, N_INITIATOR, nmt, supported_br);
 }
 
 /** @ingroup data
@@ -1224,7 +1283,7 @@ nfc_device_get_supported_baud_rate(nfc_device *pnd, const nfc_modulation_type nm
 int
 nfc_device_get_supported_baud_rate_target_mode(nfc_device *pnd, const nfc_modulation_type nmt, const nfc_baud_rate **const supported_br)
 {
-  HAL(get_supported_baud_rate, pnd, N_TARGET, nmt, supported_br);
+   HAL(get_supported_baud_rate, pnd, N_TARGET, nmt, supported_br);
 }
 
 /** @ingroup data
@@ -1238,33 +1297,42 @@ nfc_device_get_supported_baud_rate_target_mode(nfc_device *pnd, const nfc_modula
 static int
 nfc_device_validate_modulation(nfc_device *pnd, const nfc_mode mode, const nfc_modulation *nm)
 {
-  int res;
-  const nfc_modulation_type *nmt = NULL;
-  if ((res = nfc_device_get_supported_modulation(pnd, mode, &nmt)) < 0) {
-    return res;
-  }
-  assert(nmt != NULL);
-  for (int i = 0; nmt[i]; i++) {
-    if (nmt[i] == nm->nmt) {
-      const nfc_baud_rate *nbr = NULL;
-      if (mode == N_INITIATOR) {
-        if ((res = nfc_device_get_supported_baud_rate(pnd, nmt[i], &nbr)) < 0) {
-          return res;
-        }
-      } else {
-        if ((res = nfc_device_get_supported_baud_rate_target_mode(pnd, nmt[i], &nbr)) < 0) {
-          return res;
-        }
+   int res;
+   const nfc_modulation_type *nmt = NULL;
+   if ((res = nfc_device_get_supported_modulation(pnd, mode, &nmt)) < 0)
+   {
+      return res;
+   }
+   assert(nmt != NULL);
+   for (int i = 0; nmt[i]; i++)
+   {
+      if (nmt[i] == nm->nmt)
+      {
+         const nfc_baud_rate *nbr = NULL;
+         if (mode == N_INITIATOR)
+         {
+            if ((res = nfc_device_get_supported_baud_rate(pnd, nmt[i], &nbr)) < 0)
+            {
+               return res;
+            }
+         }
+         else
+         {
+            if ((res = nfc_device_get_supported_baud_rate_target_mode(pnd, nmt[i], &nbr)) < 0)
+            {
+               return res;
+            }
+         }
+         assert(nbr != NULL);
+         for (int j = 0; nbr[j]; j++)
+         {
+            if (nbr[j] == nm->nbr)
+               return NFC_SUCCESS;
+         }
+         return NFC_EINVARG;
       }
-      assert(nbr != NULL);
-      for (int j = 0; nbr[j]; j++) {
-        if (nbr[j] == nm->nbr)
-          return NFC_SUCCESS;
-      }
-      return NFC_EINVARG;
-    }
-  }
-  return NFC_EINVARG;
+   }
+   return NFC_EINVARG;
 }
 
 /* Misc. functions */
@@ -1279,9 +1347,9 @@ const char *
 nfc_version(void)
 {
 #ifdef GIT_REVISION
-  return GIT_REVISION;
+   return GIT_REVISION;
 #else
-  return PACKAGE_VERSION;
+   return PACKAGE_VERSION;
 #endif // GIT_REVISION
 }
 
@@ -1293,7 +1361,7 @@ nfc_version(void)
 void
 nfc_free(void *p)
 {
-  free(p);
+   free(p);
 }
 
 /** @ingroup misc
@@ -1307,7 +1375,7 @@ nfc_free(void *p)
 int
 nfc_device_get_information_about(nfc_device *pnd, char **buf)
 {
-  HAL(device_get_information_about, pnd, buf);
+   HAL(device_get_information_about, pnd, buf);
 }
 
 /** @ingroup string-converter
@@ -1318,20 +1386,21 @@ nfc_device_get_information_about(nfc_device *pnd, char **buf)
 const char *
 str_nfc_baud_rate(const nfc_baud_rate nbr)
 {
-  switch (nbr) {
-    case NBR_UNDEFINED:
+   switch (nbr)
+   {
+   case NBR_UNDEFINED:
       return "undefined baud rate";
-    case NBR_106:
+   case NBR_106:
       return "106 kbps";
-    case NBR_212:
+   case NBR_212:
       return "212 kbps";
-    case NBR_424:
+   case NBR_424:
       return "424 kbps";
-    case NBR_847:
+   case NBR_847:
       return "847 kbps";
-  }
+   }
 
-  return "???";
+   return "???";
 }
 
 /** @ingroup string-converter
@@ -1342,28 +1411,29 @@ str_nfc_baud_rate(const nfc_baud_rate nbr)
 const char *
 str_nfc_modulation_type(const nfc_modulation_type nmt)
 {
-  switch (nmt) {
-    case NMT_ISO14443A:
+   switch (nmt)
+   {
+   case NMT_ISO14443A:
       return "ISO/IEC 14443A";
-    case NMT_ISO14443B:
+   case NMT_ISO14443B:
       return "ISO/IEC 14443-4B";
-    case NMT_ISO14443BI:
+   case NMT_ISO14443BI:
       return "ISO/IEC 14443-4B'";
-    case NMT_ISO14443B2CT:
+   case NMT_ISO14443B2CT:
       return "ISO/IEC 14443-2B ASK CTx";
-    case NMT_ISO14443B2SR:
+   case NMT_ISO14443B2SR:
       return "ISO/IEC 14443-2B ST SRx";
-    case NMT_FELICA:
+   case NMT_FELICA:
       return "FeliCa";
-    case NMT_JEWEL:
+   case NMT_JEWEL:
       return "Innovision Jewel";
-    case NMT_BARCODE:
+   case NMT_BARCODE:
       return "Thinfilm NFC Barcode";
-    case NMT_DEP:
+   case NMT_DEP:
       return "D.E.P.";
-  }
+   }
 
-  return "???";
+   return "???";
 }
 
 /** @ingroup string-converter
@@ -1378,10 +1448,10 @@ str_nfc_modulation_type(const nfc_modulation_type nmt)
 int
 str_nfc_target(char **buf, const nfc_target *pnt, bool verbose)
 {
-  *buf = malloc(4096);
-  if (! *buf)
-    return NFC_ESOFT;
-  (*buf)[0] = '\0';
-  snprint_nfc_target(*buf, 4096, pnt, verbose);
-  return strlen(*buf);
+   *buf = malloc(4096);
+   if (! *buf)
+      return NFC_ESOFT;
+   (*buf)[0] = '\0';
+   snprint_nfc_target(*buf, 4096, pnt, verbose);
+   return strlen(*buf);
 }

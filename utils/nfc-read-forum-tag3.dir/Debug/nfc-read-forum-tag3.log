@@ -1,0 +1,8 @@
+﻿  nfc-read-forum-tag3.c
+C:\eco\libnfc\utils\nfc-read-forum-tag3.c(96): warning C4267: '=': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\eco\libnfc\utils\nfc-read-forum-tag3.c(107): warning C4244: 'initializing': conversion from 'const uint16_t' to 'uint8_t', possible loss of data
+C:\eco\libnfc\utils\nfc-read-forum-tag3.c(176): warning C4013: 'getopt' undefined; assuming extern returning int
+C:\eco\libnfc\utils\nfc-read-forum-tag3.c(185): error C2065: 'optarg': undeclared identifier
+C:\eco\libnfc\utils\nfc-read-forum-tag3.c(185): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\eco\libnfc\utils\nfc-read-forum-tag3.c(205): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(207): note: see declaration of 'fopen'

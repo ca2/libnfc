@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{10E41E85-D084-36F1-BF22-7675D921C81D}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\eco\libnfc\contrib\win32;C:\eco\libnfc;C:\eco\libnfc\include;C:\eco\libnfc\libnfc\drivers;C:\eco\libusb-win32-bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\eco\libnfc\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/eco/libnfc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/eco/libnfc -BC:/eco/time/Win32/basis --check-stamp-file C:/eco/time/Win32/basis/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/eco/libnfc/CMakeLists.txt;C:\eco\libnfc\CMakeLists.txt;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\eco\libnfc\cmake\config_windows.h.cmake;C:\eco\libnfc\cmake\modules\UseDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindPackageMessage.cmake;C:\eco\libnfc\cmake\modules\LibnfcDrivers.cmake;C:\eco\libnfc\cmake\modules\FindLIBUSB.cmake;C:\eco\libnfc\cmake\modules\FindLIBUSB.cmake;C:\eco\libnfc\contrib\win32\version.rc.in;C:\Program Files\CMake\share\cmake-3.10\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\eco\libnfc\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\eco\time\Win32\basis\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/eco/libnfc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/eco/libnfc -BC:/eco/time/Win32/basis --check-stamp-file C:/eco/time/Win32/basis/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/eco/libnfc/CMakeLists.txt;C:\eco\libnfc\CMakeLists.txt;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\eco\libnfc\cmake\config_windows.h.cmake;C:\eco\libnfc\cmake\modules\UseDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindPackageMessage.cmake;C:\eco\libnfc\cmake\modules\LibnfcDrivers.cmake;C:\eco\libnfc\cmake\modules\FindLIBUSB.cmake;C:\eco\libnfc\cmake\modules\FindLIBUSB.cmake;C:\eco\libnfc\contrib\win32\version.rc.in;C:\Program Files\CMake\share\cmake-3.10\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\eco\libnfc\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\eco\time\Win32\basis\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/eco/libnfc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/eco/libnfc -BC:/eco/time/Win32/basis --check-stamp-file C:/eco/time/Win32/basis/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/eco/libnfc/CMakeLists.txt;C:\eco\libnfc\CMakeLists.txt;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\eco\libnfc\cmake\config_windows.h.cmake;C:\eco\libnfc\cmake\modules\UseDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindPackageMessage.cmake;C:\eco\libnfc\cmake\modules\LibnfcDrivers.cmake;C:\eco\libnfc\cmake\modules\FindLIBUSB.cmake;C:\eco\libnfc\cmake\modules\FindLIBUSB.cmake;C:\eco\libnfc\contrib\win32\version.rc.in;C:\Program Files\CMake\share\cmake-3.10\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\eco\libnfc\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\eco\time\Win32\basis\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/eco/libnfc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/eco/libnfc -BC:/eco/time/Win32/basis --check-stamp-file C:/eco/time/Win32/basis/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/eco/libnfc/CMakeLists.txt;C:\eco\libnfc\CMakeLists.txt;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\eco\time\Win32\basis\CMakeFiles\3.10.0\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\eco\libnfc\cmake\config_windows.h.cmake;C:\eco\libnfc\cmake\modules\UseDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\FindPackageMessage.cmake;C:\eco\libnfc\cmake\modules\LibnfcDrivers.cmake;C:\eco\libnfc\cmake\modules\FindLIBUSB.cmake;C:\eco\libnfc\cmake\modules\FindLIBUSB.cmake;C:\eco\libnfc\contrib\win32\version.rc.in;C:\Program Files\CMake\share\cmake-3.10\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\eco\libnfc\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\eco\time\Win32\basis\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\eco\time\Win32\basis\ZERO_CHECK.vcxproj">
+      <Project>{0E545766-A7D6-3B3C-BD30-0165CC68F06A}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\libnfc\nfc.vcxproj">
+      <Project>{0D71B9F4-D427-30C6-A898-F8FBB2069FC7}</Project>
+      <Name>nfc</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-anticol.vcxproj">
+      <Project>{2FC9575E-FA2A-33BF-8861-A62CFB1E9AD9}</Project>
+      <Name>nfc-anticol</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-barcode.vcxproj">
+      <Project>{ED1F30D5-9761-3252-972F-7326FFEC7DD9}</Project>
+      <Name>nfc-barcode</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-dep-initiator.vcxproj">
+      <Project>{9022B9AC-6379-3A70-A944-10714E2B1EA4}</Project>
+      <Name>nfc-dep-initiator</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-dep-target.vcxproj">
+      <Project>{45331633-32BE-37DF-BA8A-B87E23D6EF80}</Project>
+      <Name>nfc-dep-target</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-emulate-forum-tag2.vcxproj">
+      <Project>{9F541FAB-A602-3CE2-AF40-25E11FE71FF2}</Project>
+      <Name>nfc-emulate-forum-tag2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-emulate-forum-tag4.vcxproj">
+      <Project>{6C4A40F2-B21F-3717-AB40-404350A07D5C}</Project>
+      <Name>nfc-emulate-forum-tag4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-emulate-tag.vcxproj">
+      <Project>{0B5E4AB1-44A3-3BB4-8ABD-26FFDC11571F}</Project>
+      <Name>nfc-emulate-tag</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-emulate-uid.vcxproj">
+      <Project>{88D6FC61-AA07-31C6-9DE3-57821AEE67EB}</Project>
+      <Name>nfc-emulate-uid</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-jewel.vcxproj">
+      <Project>{C451EA21-50E5-33DE-AC23-D6D027149540}</Project>
+      <Name>nfc-jewel</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-list.vcxproj">
+      <Project>{37750029-5F21-3405-8450-95717957B7F1}</Project>
+      <Name>nfc-list</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-mfclassic.vcxproj">
+      <Project>{42304D37-7018-3C90-888A-E97A11C2FEF0}</Project>
+      <Name>nfc-mfclassic</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-mfsetuid.vcxproj">
+      <Project>{CF28698A-C512-3827-84C3-D69A50F52067}</Project>
+      <Name>nfc-mfsetuid</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-mfultralight.vcxproj">
+      <Project>{8100BD96-09E6-343E-BB22-D9DA58C06E6E}</Project>
+      <Name>nfc-mfultralight</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-poll.vcxproj">
+      <Project>{4347442B-7F0B-3841-BAC4-25E0EAC18293}</Project>
+      <Name>nfc-poll</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-read-forum-tag3.vcxproj">
+      <Project>{38954779-6D7A-34D6-90EB-A812F44E4299}</Project>
+      <Name>nfc-read-forum-tag3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\nfc-relay.vcxproj">
+      <Project>{8C93F0B7-5083-3A37-8311-9C10405FD1A9}</Project>
+      <Name>nfc-relay</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-relay-picc.vcxproj">
+      <Project>{9784CDF7-8404-3902-BAE9-0E46083B28E2}</Project>
+      <Name>nfc-relay-picc</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfc-scan-device.vcxproj">
+      <Project>{F4715837-8C96-3325-857E-E55FF9F7DDC6}</Project>
+      <Name>nfc-scan-device</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\utils\nfcutils.vcxproj">
+      <Project>{07C7B094-E1CD-39D2-9C2A-F1A97F65F9FA}</Project>
+      <Name>nfcutils</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\pn53x-diagnose.vcxproj">
+      <Project>{5C6244E9-FDB5-3303-B6E1-A1822F3A5F0C}</Project>
+      <Name>pn53x-diagnose</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\pn53x-sam.vcxproj">
+      <Project>{E165CD27-F92C-39B6-A852-74FBA32FD030}</Project>
+      <Name>pn53x-sam</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\eco\time\Win32\basis\examples\pn53x-tamashell.vcxproj">
+      <Project>{0B9DB727-4CA1-3A8A-AE96-38EBD93BCACA}</Project>
+      <Name>pn53x-tamashell</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
